@@ -36,7 +36,7 @@ control *numeroHilo(int a,int b){
         int n=a-1;
         for(int i=0;i<b;i++)
        {
-            if(n>acum)
+            if(n>=acum)
             {
                 arreglo[i].init=acum;
                 acum=acum+(di-1);
@@ -45,7 +45,7 @@ control *numeroHilo(int a,int b){
             }
             else{
                 arreglo[i].init=acum;
-                acum=n;
+                acum=a=1;
                 arreglo[i].end=acum;
             }
             n=n-di;
@@ -105,12 +105,12 @@ int main(int argc, char *argv[]){
     void *sumaparcial=NULL;
     for (i = 0; i < atoi(argv[2]); ++i) {
         pthread_join(thr[i], &sumaparcial);
-        printf("Valor Parcial: %lu\n",(long)sumaparcial);
-        sumatotal += (long)sumaparcial;
+        printf("Valor Hilo %d: %lu\n",(i+1),(long)sumaparcial);
+        sumatotal =sumatotal+ (long)sumaparcial;
     }
     double tf = obtenerTiempoActual()-ti;
     printf("Suma Total: %d\n",(int)sumatotal);
 
-	printf("Tiempo de ejecucion: %9f\n",tf);
+	printf("Tiempo de ejecucion: %9f segundos\n",tf);
     return 0;
 }
