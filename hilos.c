@@ -32,6 +32,7 @@ control *numeroHilo(int a,int b){
         }  
     }else{
         //cogemos el entero mayor
+        //cuando la division no es exacta
         di=(a/b);
         int n=a-1;
         for(int i=0;i<b;i++)
@@ -43,9 +44,10 @@ control *numeroHilo(int a,int b){
                 arreglo[i].end=acum;
                 acum=acum+1;
             }
+            //coge el resto de los caracteres
             else{
                 arreglo[i].init=acum;
-                acum=a=1;
+                acum=a-1;
                 arreglo[i].end=acum;
             }
             n=n-di;
